@@ -1,17 +1,52 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>
+      Tweets
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+  <div align="center">
+    <h1>¡Bienvenido a Twitter!</h1>
+  </div>
+  
+  <div align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Twitter_bird_logo_2012.svg/1259px-Twitter_bird_logo_2012.svg.png" width="60" height="60" >
+  </div>
+
+  <ion-card *ngFor="let publicar of publicaciones">
+    <ion-card-header>
+      <h1>
+        {{ publicar.nick }}
+      </h1>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <h2>{{ publicar.descripcion }}</h2>
+        </ion-item>
+
+        <ion-item>
+          <h4>{{ publicar.fecha }}</h4>
+        </ion-item>
+      </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+ 
+
+  <ion-fab top right edge>
+    <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list>
+            <button ion-fab color="dark" (click)="refrescar()">
+              <ion-icon name="md-refresh"></ion-icon>
+            </button>
+                <button ion-fab color="dark" (click)="verFormulario()">
+                  <ion-icon name="md-create"></ion-icon>
+          </button>
+
+    </ion-fab-list>
+  </ion-fab>
+
 </ion-content>

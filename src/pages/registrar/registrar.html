@@ -1,0 +1,50 @@
+<ion-header>
+
+  <ion-navbar  color="primary">
+    <ion-title>Registrarse</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+                  <ion-item>
+            <ion-label floating>Nombre</ion-label>
+            <ion-input type="text"
+            name="nombre" [(ngModel)]="usuario.nombre"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Apellido</ion-label>
+            <ion-input type="text" [(ngModel)]="usuario.apellido"
+            name="apellido"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Nick</ion-label>
+            <ion-input type="text" [(ngModel)]="usuario.nick"
+            name="nick"
+            ></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Contrasena</ion-label>
+            <ion-input type="password"
+            name="contrasena" [(ngModel)]="usuario.contrasena"
+            ></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <button ion-button full color="dark"
+        (click)="iniciarSesion()">
+        Registrar
+      </button>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

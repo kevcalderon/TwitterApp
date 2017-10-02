@@ -1,11 +1,35 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Recomendados
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <ion-card *ngFor="let seguir of seguiList">
+      <button
+            (click)="suscribir(seguir.idUsuario)"
+            class="btn btn-block btn-outline-danger">
+            <ion-icon name="md-checkmark"></ion-icon>
+      </button>
+      <ion-card-header>
+        <h1>
+          {{ seguir.nick }}
+        </h1>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <h2>{{ seguir.nombre + " " + seguir.apellido }}</h2>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
 
+    <ion-fab right bottom>
+   <button ion-fab color="dark" (click)="refrescar()">
+     <ion-icon name="md-refresh"></ion-icon>
+   </button>
+  </ion-fab>
 </ion-content>

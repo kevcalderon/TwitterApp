@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Mis Tweets
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let publicar of publicaciones">
+  	<button
+          (click)="eliminar(publicar.idPublicacion)"
+          class="btn btn-block btn-outline-danger">
+          <ion-icon name="ios-trash-outline"></ion-icon>
+    </button>
+    <ion-card-header>
+      <h1>
+        {{ publicar.nick }}
+      </h1>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <h2>{{ publicar.descripcion }}</h2>
+        </ion-item>
+
+        <ion-item>
+          <h4>{{ publicar.fecha }}</h4>
+        </ion-item>
+      </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab right bottom>
+    <button ion-fab color="dark" (click)="verFormulario()">
+       <ion-icon name="md-add"></ion-icon>
+     </button>
+  </ion-fab>
+
+  <ion-fab left bottom>
+    <button ion-fab color="dark" (click)="refrescar()">
+       <ion-icon name="md-refresh"></ion-icon>
+     </button>
+  </ion-fab>
+
+</ion-content>
